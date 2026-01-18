@@ -3,15 +3,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
 
 // #include <dt-bindings/zmk/mouse.h>
 
 #define DEFAULT 0
-#define SCRLM 1
-#define SCRLH 2
+#define SCRL 1
+#define EXTD 2
 #define DEVICE 3
 #define BLTH 4
-#define SNIPE 5
 
 / {
   combos {
@@ -52,43 +52,36 @@
     default_layer {
       display-name = "Default";
       bindings = <
-        &ltm BLTH MB4 &mkp LC(LEFT) &mkp LC(RIGHT) &mo SCRLM
-        &mkp LCLK                                  &mkp LCLK
+        &ltm EXTD MB4 &mkp LC(LEFT) &ltm BLTH LC(LEFT) &mo SCRL
+        &mkp LCLK                                      &mkp RCLK
       >;
     };
-    scroll_tap_layer {
-      display-name = "Scroll-Momentary";
+    scroll_layer {
+      display-name = "Scroll";
       bindings = <
-        &trans &trans &to SCRLH &trans
-        &to SCRLH               &trans
+        &trans &trans &trans &trans
+        &trans               &trans
       >;
     };
-    scroll_hold_layer {
-      display-name = "Scroll-Keep";
+    extra_button_layer {
+      display-name = "Buttons-Extended";
       bindings = <
-        &trans &trans &trans &to DEFAULT
-        &trans               &to DEFAULT
+        &trans &mkp MB4 &mkp MB5  &to DEFAULT
+        &to DEVICE                &to DEFAULT
       >;
     };
     device_layer {
       display-name = "Device";
       bindings = <
-        &bootloader &trans &trans &trans
-        &trans                    &bt BT_CLR
+        &trans &trans &trans &bootloader
+        &trans               &bt BT_CLR
       >;
     };
     bluetooth_layer {
       display-name = "Bluetooth";
       bindings = <
-        &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
+        &bt BT_SEL 0 &bt BT_SEL 1 &trans &bt BT_SEL 2
         &bt BT_SEL 3                     &bt BT_SEL 4
-      >;
-    };
-    snipe_layer {
-      display-name = "Snipe";
-      bindings = <
-        &trans &trans &trans &lth SCRLM RCLK
-        &trans               &to DEFAULT
       >;
     };
   };
