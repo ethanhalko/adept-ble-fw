@@ -65,8 +65,8 @@
         default_layer {
             display-name = "Default";
             bindings = <
-&ltm EXTD MB4  &kp LC(LEFT)  &ltk BLTH LC(RIGHT)  &mo SCRL
-&mkp LCLK                                         &mkp RCLK
+&mo 2      &kp LC(LEFT)  &ltk BLTH LC(RIGHT)  &mo SCRL
+&mkp LCLK                                     &mkp RCLK
             >;
         };
 
