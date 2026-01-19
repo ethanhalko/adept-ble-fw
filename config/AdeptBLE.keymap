@@ -66,8 +66,8 @@
     extra_button_layer {
       display-name = "Buttons-Extended";
       bindings = <
-        &trans &mkp MB4 &mkp MB5  &to DEFAULT
-        &to DEVICE                &to DEFAULT
+        &trans &mkp LC(UP) &mkp LC(DOWN)  &to DEFAULT
+        &to DEVICE                        &to DEFAULT
       >;
     };
     device_layer {
