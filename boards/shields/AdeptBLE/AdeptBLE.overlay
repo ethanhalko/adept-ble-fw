@@ -6,11 +6,10 @@
 
 // layers
 #define DEFAULT 0
-#define SCRLM 1
-#define SCRLH 2
+#define SCRL 1
+#define EXTD 2
 #define DEVICE 3
 #define BLTH 4
-#define SNIPE 5
 
 / {
     chosen {
@@ -140,11 +139,12 @@
 
     default {
         layers = <DEFAULT>;
+        input-processors = <&zip_xy_scaler 1 2>;
         process-next;
     };
     scroll {
-        layers = <SCRLM SCRLH>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_swap_mapper>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
+        layers = <SCRL>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_swap_mapper>, <&zip_xy_scaler 1 14>, <&zip_xy_to_scroll_mapper>;
         process-next;
     };
     snipe {
